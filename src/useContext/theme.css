@@ -1,0 +1,16 @@
+.dark {
+  color: #fff;
+  background-color: #333;
+  min-height: 100vh;
+}
+
+.light {
+  color: #333;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
