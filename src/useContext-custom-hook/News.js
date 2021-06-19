@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { ThemeContext } from "./index";
-import "./theme.css";
+import React from "react";
+import { useTheme } from "./ThemeContext";
 function News() {
-  const { dark, setDark } = useContext(ThemeContext);
+  const { dark, setDark } = useTheme();
   return (
     <main className={dark ? "dark" : "light"}>
       <h2>This is News Section</h2>
