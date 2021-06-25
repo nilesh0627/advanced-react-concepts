@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+}
+
+.container > * {
+  margin-top: 8px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
