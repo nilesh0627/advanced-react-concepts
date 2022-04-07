@@ -1,9 +1,9 @@
 import "./App.css";
-import Main from "./useMemo";
+import Timer from "./AnimatedTimer2";
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Timer />
     </div>
   );
 }

@@ -6,6 +6,109 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  text-align: center;
-  margin: 0 auto;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.timer {
+  animation: fadeout 2s 1879s linear forwards;
+}
+
+.child {
+  animation: myanimation 3s ease-in infinite;
+}
+
+@keyframes myanimation {
+  0% {
+    transform: translateY(0rem);
+  }
+
+  8% {
+    transform: translateY(0rem);
+  }
+
+  10% {
+    transform: translateY(-6rem);
+  }
+
+  18% {
+    transform: translateY(-6rem);
+  }
+
+  20% {
+    transform: translateY(-12rem);
+  }
+
+  28% {
+    transform: translateY(-12rem);
+  }
+
+  30% {
+    transform: translateY(-18rem);
+  }
+
+  38% {
+    transform: translateY(-18rem);
+  }
+
+  40% {
+    transform: translateY(-24rem);
+  }
+
+  48% {
+    transform: translateY(-24rem);
+  }
+
+  50% {
+    transform: translateY(-30rem);
+  }
+
+  58% {
+    transform: translateY(-30rem);
+  }
+
+  60% {
+    transform: translateY(-36rem);
+  }
+
+  68% {
+    transform: translateY(-36rem);
+  }
+
+  70% {
+    transform: translateY(-42rem);
+  }
+
+  78% {
+    transform: translateY(-42rem);
+  }
+
+  80% {
+    transform: translateY(-48rem);
+  }
+
+  88% {
+    transform: translateY(-48rem);
+  }
+
+  90% {
+    transform: translateY(-54rem);
+  }
+
+  98% {
+    transform: translateY(-54rem);
+  }
+
+  100% {
+    transform: translateY(-60rem);
+  }
+
+  108% {
+    transform: translateY(-60rem);
+  }
 }
