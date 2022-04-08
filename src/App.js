@@ -1,5 +1,5 @@
 import "./App.css";
-import Timer from "./AnimatedTimer2";
+import Timer from "./SammedTimer";
 function App() {
   return (
     <div className="App">
