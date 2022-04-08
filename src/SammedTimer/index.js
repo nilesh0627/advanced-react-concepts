@@ -125,6 +125,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 16:32:00').getTime()
+    finishTimer: new Date('April 9, 2022 17:07:40').getTime()
 }
 export default Timer
