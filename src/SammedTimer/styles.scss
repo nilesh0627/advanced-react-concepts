@@ -8,7 +8,8 @@ $easing: cubic-bezier(1, 0, 1, 0);
 
 @mixin animateAtLastSecond($count, $progress) {
     $step:  math.div(100, $count);
-    $translate: 0;
+    // $translate: 0;
+    $translate: -$digit-height * ($count - 1);
 
     @while $progress < 100 {
         #{$progress} {
@@ -16,15 +17,16 @@ $easing: cubic-bezier(1, 0, 1, 0);
         }
 
         $progress: $progress+$step;
-        $translate: $translate - $digit-height;
+        // $translate: $translate - $digit-height;
+        $translate: $translate + $digit-height;
     }
 }
 
 @mixin animate($count) {
     $step: math.div(100, $count);
     $progress: 0%;
-    $translate: 0;
-    // $translate: -$digit-height * ($count - 1);
+    // $translate: 0;
+    $translate: -$digit-height * ($count - 1);
 
     @while $progress < 100 {
         #{$progress} {
@@ -32,8 +34,8 @@ $easing: cubic-bezier(1, 0, 1, 0);
         }
 
         $progress: $progress+$step;
-        $translate: $translate - $digit-height;
-        // $translate: $translate + $digit-height;
+        // $translate: $translate - $digit-height;
+        $translate: $translate + $digit-height;
     }
 }
 

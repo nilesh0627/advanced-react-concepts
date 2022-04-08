@@ -14,12 +14,12 @@ function Timer({ finishTimer }) {
     let _seconds_tens;
     let _seconds_ones;
 
-    const hoursTensArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-    const hoursOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-    const minutesTensArray = [5, 4, 3, 2, 1, 0];
-    const minutesOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
-    const secondsTensArray = [5, 4, 3, 2, 1, 0];
-    const secondsOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+    const hoursTensArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
+    const hoursOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
+    const minutesTensArray = [5, 4, 3, 2, 1, 0].reverse();
+    const minutesOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
+    const secondsTensArray = [5, 4, 3, 2, 1, 0].reverse();
+    const secondsOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
 
     const hoursTensDigit = Math.floor(hours / 10);
     const hoursOnesDigit = hours % 10;
@@ -125,6 +125,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 14:37:30').getTime()
+    finishTimer: new Date('April 9, 2022 16:32:00').getTime()
 }
 export default Timer
