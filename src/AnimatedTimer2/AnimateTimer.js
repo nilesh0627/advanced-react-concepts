@@ -11,7 +11,7 @@ export const animateTimer = () => {
     TweenLite.defaultEase = Expo.easeIn;
     // TweenLite.defaultEase = Bounce.easeInOut; -->> need to check with sally what animation effect is needed 
 
-    initTimer("40:00:02"); // other ways --> "0:15" "03:5" "5:2"
+    initTimer("20:01:02"); // other ways --> "0:15" "03:5" "5:2"
 
     // var timerEl = document.querySelector('.timer');
 
@@ -37,11 +37,8 @@ export const animateTimer = () => {
                 secondNum: secondsGroupEl.querySelector('.second')
             };
 
-        var time = {
-            hour: t.split(':')[0],
-            min: t.split(':')[1],
-            sec: t.split(':')[2]
-        };
+        var [hour, min, sec] = t.split(':');
+        var time = { hour, min, sec };
         console.log(time)
 
         var timeNumbers;
@@ -49,7 +46,7 @@ export const animateTimer = () => {
         function updateTimer() {
 
             var timestr;
-            var date = new Date();
+            // var date = new Date();
 
             // date.setHours(time.hour)
             // date.setMinutes(time.min);
@@ -82,8 +79,8 @@ export const animateTimer = () => {
             if (timestr === '000000')
                 countdownFinished();
 
-            if (timestr != '000000')
-                setTimeout(updateTimer, 1000);
+            // if (timestr != '000000')
+            //     setTimeout(updateTimer, 1000);
 
         }
 
@@ -100,7 +97,7 @@ export const animateTimer = () => {
 
         function animateNum(group, arrayValue) {
 
-            TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
+            // TweenMax.killTweensOf(group.querySelector('.number-grp-wrp'));
             TweenMax.to(group.querySelector('.number-grp-wrp'), 1, {
                 y: - group.querySelector('.num-' + arrayValue).offsetTop
             });

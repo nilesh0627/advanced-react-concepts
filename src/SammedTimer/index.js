@@ -26,28 +26,31 @@ function Timer({ finishTimer }) {
     console.log(minutesTensDigit, minutesOnesDigit, secondsTensDigit, secondsOnesDigit);
 
     const timeNow = Date.now();
-    const minutesTensList = arrayRotate(minutesTensArray, 5 - minutesTensDigit).map(number => {
+    // const minutesTensList = arrayRotate(minutesTensArray, 5 - minutesTensDigit).map(number => {
+    //     return <span key={`minutesTensList-${timeNow + number}`} className="digit">{number}</span>;
+    // })
+
+    const minutesTensList = minutesTensArray.map(number => {
         return <span key={`minutesTensList-${timeNow + number}`} className="digit">{number}</span>;
     })
 
-
-    const minutesOnesList = arrayRotate(minutesOnesArray, 9 - minutesOnesDigit).map(number => {
+    const minutesOnesList = minutesOnesArray.map(number => {
         return <span key={`minutesOnesList-${timeNow + number}`} className="digit">{number}</span>;
     })
 
-    const secondsTensList = arrayRotate(secondsTensArray, 5 - secondsTensDigit).map(number => {
+    const secondsTensList = secondsTensArray.map(number => {
         return <span key={`secondsTensList-${timeNow + number}`} className="digit">{number}</span>;
     })
 
-    const secondsOnesList = arrayRotate(secondsOnesArray, 9 - secondsOnesDigit).map(number => {
+    const secondsOnesList = secondsOnesArray.map(number => {
         return <span key={`secondsOnesList-${timeNow + number}`} className="digit">{number}</span>;
     })
 
     useEffect(() => {
-        _minutes_tens.style.animationDelay = `${0}s`;
-        _minutes_ones.style.animationDelay = `${seconds - 59}s`;
-        _seconds_tens.style.animationDelay = `${secondsOnesDigit - 9}s`;
-        // _seconds_ones.style.animationDelay = `${secondsOnesDigit - 10}s`;
+        _minutes_tens.style.animationDelay = `${minutes * 60 + seconds - 3599}s`;
+        _minutes_ones.style.animationDelay = `${minutesOnesDigit * 60 + seconds - 599}s`;
+        _seconds_tens.style.animationDelay = `${seconds - 59}s`;
+        _seconds_ones.style.animationDelay = `${secondsOnesDigit - 9}s`;
     }, [])
 
     console.log('rendering');
@@ -91,6 +94,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 12:55:40').getTime()
+    finishTimer: new Date('April 9, 2022 12:48:40').getTime()
 }
 export default Timer
