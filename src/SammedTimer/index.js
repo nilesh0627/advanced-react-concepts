@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { getRemainingTime, arrayRotate } from './utils'
 import './styles.scss'
+import ShowTimer from './ShowTimer';
 
 function Timer({ finishTimer }) {
 
@@ -28,6 +29,7 @@ function Timer({ finishTimer }) {
     const minutesTensList = arrayRotate(minutesTensArray, 5 - minutesTensDigit).map(number => {
         return <span key={`minutesTensList-${timeNow + number}`} className="digit">{number}</span>;
     })
+
 
     const minutesOnesList = arrayRotate(minutesOnesArray, 9 - minutesOnesDigit).map(number => {
         return <span key={`minutesOnesList-${timeNow + number}`} className="digit">{number}</span>;
@@ -89,6 +91,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 10:35:40').getTime()
+    finishTimer: new Date('April 9, 2022 12:55:40').getTime()
 }
 export default Timer
