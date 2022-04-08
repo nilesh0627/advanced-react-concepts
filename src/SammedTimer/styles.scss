@@ -68,13 +68,13 @@ $digit-height: 180px;
     &.hours {
         &.tens .digit-wrapper {
             animation-name: hours-tens;
-            animation-duration: $one-second * 10 * 6 * 10 * 6 * 10 * 10;
+            animation-duration: $one-second * 10 * 6 * 10 * 6 * 10 * 6;
             animation-iteration-count: infinite;
         }
 
         &.ones .digit-wrapper {
             animation-name: hours-ones;
-            animation-duration: $one-second * 10 * 6 * 10 * 10;
+            animation-duration: $one-second * 10 * 6 * 10 * 6 * 10;
             animation-iteration-count: infinite;
         }
     }
@@ -139,7 +139,7 @@ $digit-height: 180px;
 }
 
 @keyframes hours-tens {
-    @include animate(10);
+    @include animate(6);
 }
 
 @keyframes hours-ones {
