@@ -14,7 +14,7 @@ function Timer({ finishTimer }) {
     let _seconds_tens;
     let _seconds_ones;
 
-    const hoursTensArray = [5, 4, 3, 2, 1, 0];
+    const hoursTensArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
     const hoursOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
     const minutesTensArray = [5, 4, 3, 2, 1, 0];
     const minutesOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
@@ -60,7 +60,7 @@ function Timer({ finishTimer }) {
     })
 
     useEffect(() => {
-        _hours_tens.style.animationDelay = `${hours * 60 * 60 + minutes * 60 + seconds - 215999}s`;
+        _hours_tens.style.animationDelay = `${hours * 60 * 60 + minutes * 60 + seconds - 359999}s`;
         _hours_ones.style.animationDelay = `${hoursOnesDigit * 60 * 60 + minutes * 60 + seconds - 35999}s`;
         _minutes_tens.style.animationDelay = `${minutes * 60 + seconds - 3599}s`;
         _minutes_ones.style.animationDelay = `${minutesOnesDigit * 60 + seconds - 599}s`;
@@ -125,6 +125,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 15:27:00').getTime()
+    finishTimer: new Date('April 9, 2022 14:37:30').getTime()
 }
 export default Timer

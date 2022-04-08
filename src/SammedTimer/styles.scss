@@ -6,6 +6,20 @@ $one-second: 1s;
 $easing: cubic-bezier(1, 0, 1, 0);
 /* =========================================== */
 
+@mixin animateAtLastSecond($count, $progress) {
+    $step:  math.div(100, $count);
+    $translate: 0;
+
+    @while $progress < 100 {
+        #{$progress} {
+            transform: translateY($translate);
+        }
+
+        $progress: $progress+$step;
+        $translate: $translate - $digit-height;
+    }
+}
+
 @mixin animate($count) {
     $step: math.div(100, $count);
     $progress: 0%;
@@ -68,7 +82,7 @@ $digit-height: 180px;
     &.hours {
         &.tens .digit-wrapper {
             animation-name: hours-tens;
-            animation-duration: $one-second * 10 * 6 * 10 * 6 * 10 * 6;
+            animation-duration: $one-second * 10 * 6 * 10 * 6 * 10 * 10;
             animation-iteration-count: infinite;
         }
 
@@ -122,29 +136,36 @@ $digit-height: 180px;
     // }
 }
 
-@keyframes minutes-tens {
-    @include animate(6);
-}
-
-@keyframes minutes-ones {
-    @include animate(10);
-}
-
-@keyframes seconds-tens {
-    @include animate(6);
-}
-
-@keyframes seconds-ones {
-    @include animate(10);
-}
-
 @keyframes hours-tens {
-    @include animate(6);
+    @include animate(10);
+    @include animateAtLastSecond(10, 9.9997%);
 }
 
 @keyframes hours-ones {
     @include animate(10);
+    @include animateAtLastSecond(10, 9.997%);
 }
+
+@keyframes minutes-tens {
+    @include animate(6);
+    @include animateAtLastSecond(6, 16.638%);
+}
+
+@keyframes minutes-ones {
+    @include animate(10);
+    @include animateAtLastSecond(10, 9.83%);
+}
+
+@keyframes seconds-tens {
+    @include animate(6);
+    @include animateAtLastSecond(6, 15%);
+}
+
+@keyframes seconds-ones {
+    @include animate(10);
+    // @include animateAtLastSecond(9.996%);
+}
+
 
 body {
     background: #fff;
