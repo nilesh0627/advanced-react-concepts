@@ -5,7 +5,7 @@ import ShowTimer from './ShowTimer';
 
 function Timer({ finishTimer }) {
 
-    const { days, hours, minutes, seconds } = getRemainingTime(finishTimer);
+    const { days, hours, minutes, seconds, remainingTime } = getRemainingTime(finishTimer);
     console.log(' hours', hours, ' minutes', minutes, ' seconds', seconds)
     let _hours_tens;
     let _hours_ones;
@@ -14,26 +14,14 @@ function Timer({ finishTimer }) {
     let _seconds_tens;
     let _seconds_ones;
 
-    const hoursTensArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
-    const hoursOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
-    const minutesTensArray = [5, 4, 3, 2, 1, 0].reverse();
-    const minutesOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
-    const secondsTensArray = [5, 4, 3, 2, 1, 0].reverse();
-    const secondsOnesArray = [9, 8, 7, 6, 5, 4, 3, 2, 1, 0].reverse();
-
-    const hoursTensDigit = Math.floor(hours / 10);
-    const hoursOnesDigit = hours % 10;
-    const minutesTensDigit = Math.floor(minutes / 10);
-    const minutesOnesDigit = minutes % 10;
-    const secondsTensDigit = Math.floor(seconds / 10);
-    const secondsOnesDigit = seconds % 10;
-
-    // console.log(minutesTensDigit, minutesOnesDigit, secondsTensDigit, secondsOnesDigit);
+    const hoursTensArray = [9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const hoursOnesArray = [9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const minutesTensArray = [5, 0, 1, 2, 3, 4, 5];
+    const minutesOnesArray = [9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const secondsTensArray = [5, 0, 1, 2, 3, 4, 5];
+    const secondsOnesArray = [9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     const timeNow = Date.now();
-    // const minutesTensList = arrayRotate(minutesTensArray, 5 - minutesTensDigit).map(number => {
-    //     return <span key={`minutesTensList-${timeNow + number}`} className="digit">{number}</span>;
-    // })
 
     const hoursTensList = hoursTensArray.map(number => {
         return <span key={`hoursTensList-${timeNow + number}`} className="digit">{number}</span>;
@@ -60,12 +48,13 @@ function Timer({ finishTimer }) {
     })
 
     useEffect(() => {
-        _hours_tens.style.animationDelay = `${hours * 60 * 60 + minutes * 60 + seconds - 359999}s`;
-        _hours_ones.style.animationDelay = `${hoursOnesDigit * 60 * 60 + minutes * 60 + seconds - 35999}s`;
-        _minutes_tens.style.animationDelay = `${minutes * 60 + seconds - 3599}s`;
-        _minutes_ones.style.animationDelay = `${minutesOnesDigit * 60 + seconds - 599}s`;
-        _seconds_tens.style.animationDelay = `${seconds - 59}s`;
-        _seconds_ones.style.animationDelay = `${secondsOnesDigit - 9}s`;
+         const remainingSeconds = remainingTime > 0 ? remainingTime : 0
+        _hours_tens.style.animationDelay = `${remainingSeconds % 360000 - 359999}s`;
+        _hours_ones.style.animationDelay = `${remainingSeconds % 36000 - 35999}s`;
+        _minutes_tens.style.animationDelay = `${remainingSeconds % 3600 - 3599}s`;
+        _minutes_ones.style.animationDelay = `${remainingSeconds % 600 - 599}s`;
+        _seconds_tens.style.animationDelay = `${remainingSeconds % 60 - 59}s`;
+        _seconds_ones.style.animationDelay = `${remainingSeconds % 10 - 9}s`;
     }, [])
 
     console.log('rendering');
@@ -125,6 +114,6 @@ function Timer({ finishTimer }) {
 
 
 Timer.defaultProps = {
-    finishTimer: new Date('April 9, 2022 17:07:40').getTime()
+    finishTimer: new Date('April 9, 2022 19:45:40').getTime()
 }
 export default Timer

@@ -6,7 +6,7 @@ export const getRemainingTime = (finishTimer) => {
     const hours = Math.floor((remainingTime / (60 * 60)) % 24);
     const days = Math.floor(remainingTime / (60 * 60 * 24));
     return {
-        days, hours, minutes, seconds
+        days, hours, minutes, seconds, remainingTime
     };
 }
 
