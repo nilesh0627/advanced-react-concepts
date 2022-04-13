@@ -59,7 +59,7 @@ function Timer({ finishTimer }) {
 
     console.log('rendering');
     return (
-        <div className='wrapper'>
+        <div className='wrapper font-size'>
             <div className='time-part-wrapper'>
                 <div className='time-part hours tens'>
                     <div ref={(el) => {

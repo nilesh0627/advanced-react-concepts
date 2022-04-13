@@ -1,9 +1,9 @@
 @use "sass:math";
 
-
 /* Play with speed and easing of the animation */
 $one-second: 1s;
 $easing: cubic-bezier(1, 0, 1, 0);
+$digit-height: .9em;
 /* =========================================== */
 
 @mixin animateAtLastSecond($count, $progress) {
@@ -35,20 +35,25 @@ $easing: cubic-bezier(1, 0, 1, 0);
     }
 }
 
-$digit-height: 180px;
+.font-size {
+    font-size: 100px;
+}
+
+
 
 .digit {
     display: inline-block;
-    font-size: 200px;
     color: rgba(0, 0, 0, 0.25);
     height: $digit-height;
-    line-height: 1;
+    line-height: .9;
+    // border: 1px solid;
 }
 
 .time-part-wrapper {
     display: inline-block;
     margin-right: 50px;
     position: relative;
+    line-height: .9;
 
     &:not(:last-child):after {
         content: ":";
@@ -59,13 +64,12 @@ $digit-height: 180px;
         top: 0px;
         right: -30px;
         color: rgba(0, 0, 0, 0.25);
-        font-size: 200px;
         line-height: 0.9;
     }
 }
 
 .time-part {
-    width: 140px;
+    width: min-content;
     text-align: center;
     height: $digit-height;
     overflow: hidden;
@@ -175,6 +179,7 @@ body {
     margin: 100px auto;
     width: 1000px;
     position: relative;
+    line-height: 1;
 
     &:before,
     &:after {
